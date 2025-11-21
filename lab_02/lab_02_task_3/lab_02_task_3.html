@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ol li{
+            background-color: rgb(140, 193, 228);
+            list-style-position: inside;
+            padding: 15px 35px;
+        }
+        .ongoing::marker{
+            content: '\2610  ';
+        }
+        .ongoing:nth-child(odd){
+            background-color: rgb(130, 181, 214);
+        }
+        .completed{
+            background-color: lightgray;
+            text-decoration: line-through;
+        }
+        .completed::marker{
+            content: '\2611  ';
+        }
+    </style>
+    <title>Богдан Сердюк</title>
+</head>
+<body>
+    <ol>
+        <li class="ongoing">Pay bills</li>
+        <li class="ongoing">Hit the gym</li>
+        <li class="completed">Meet John</li>
+        <li class="completed">Buy eggs</li>
+        <li class="ongoing">Read a book</li>
+        <li class="ongoing">Organize office</li>
+        <li class="ongoing">Eat dinner</li>
+        <li class="ongoing">Buy apples</li>
+        <li class="ongoing">Meet Georg</li>
+        <li class="completed">Feed the cat</li>
+        <li class="ongoing">Write a letter</li>
+        <li class="ongoing">Run 1 km</li>
+    </ol>
+</body>
+</html>
