@@ -1,0 +1,33 @@
+.big-imgs {
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    border: 2px solid #333;
+    margin-bottom: 20px;
+    position: relative;
+}
+.big-imgs img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+:target {
+    opacity: 1 !important;
+    z-index: 1;
+}
+.small-imgs img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+.small-imgs img:hover {
+    border-color: #333;
+}
