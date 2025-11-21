@@ -1,0 +1,56 @@
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+table thead{
+    color:white;
+    background-color: rgb(80, 127, 255);
+    
+}
+table td, table th{
+    padding: 15px;
+}
+table tbody tr:nth-child(even){
+    background-color: rgb(219, 241, 255);
+}
+.note{
+    color: gray;
+}
+.size{
+    background-color: rgb(80, 127, 255);
+    display: inline-block;
+    width: 100px;
+    height: 32px;
+    line-height: 35px;
+    color: white;
+    border-radius: 20px;
+}
+.priority{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 20px;
+    color: #fff;
+}
+table tbody tr:hover{
+    background-color: rgb(180, 226, 255);
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.orange{
+    background-color: orange;
+}
+.blue{
+    background-color: rgb(131, 164, 255);
+}
+.dark-blue{
+    background-color: blue;
+}

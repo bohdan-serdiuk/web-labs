@@ -1,0 +1,34 @@
+body{
+    font-family: sans-serif;
+}
+table{
+    border-collapse: collapse;
+}
+table thead{
+    background-color: rgb(227, 255, 211);
+    text-align: center;
+    font-weight: bold;
+    height: 80px;
+}
+.specifications{
+    background-color: rgb(223, 228, 255);
+    font-weight: bold;
+    text-align: center;
+}
+tbody .day{
+    writing-mode: vertical-lr;
+    text-orientation:upright;
+}
+.day{
+    width: 60px;
+}
+.group{
+    font-size: 20px;
+    width: 280px;
+}
+.auditory{
+    text-align: center;
+}
+table th, table td{
+    border: 4px solid #000;
+}
