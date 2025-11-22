@@ -1,0 +1,22 @@
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover; 
+    transform: translate(-50%, -50%);
+    z-index: 2; 
+}
+
+.container::before {
+    content: ""; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 210px;
+    height: 210px;
+    border: 8px solid pink; 
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 1;
+}

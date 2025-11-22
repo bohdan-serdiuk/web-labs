@@ -1,0 +1,47 @@
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    width: 1200px;
+    display: flex;
+    gap: 50px;
+}
+.project{
+    box-shadow: 0 0 15px black;
+    position: relative;
+    overflow: hidden;
+    width: 33%;
+}
+.project img{
+    width: 100%;
+    object-fit: cover;
+}
+.project-description{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 60%;
+    background-color: #fff;
+    padding: 0 10px;
+    transition: all 0.5s;
+}
+.description-location{
+    color: rgb(172, 172, 172)
+}
+.project:hover .project-description{
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 0;
+    top: 0%;
+    color: white;
+    text-align: center;
+    border-bottom: 4px solid orange;
+}
+.project:hover .description-location{
+    color: #fff;
+}
+.project:hover .description-header{
+    background-color: orange;
+    height: 40px;
+    line-height: 40px;
+}
