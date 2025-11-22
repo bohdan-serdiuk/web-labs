@@ -1,0 +1,39 @@
+.container{
+    position: relative;
+    width: 1200px;
+    height: 600px;
+}
+.block{
+    position: absolute; 
+    width: 50%;
+    height: 100%;
+    background-color: gray;
+    border: 3px solid black;
+    transition: transform 2s;
+}
+.block-1{
+    top: 0;
+    left: 0;
+    transform-origin: left;
+}
+.block-2{
+    top: 0;
+    right: 0;
+    transform-origin: right;
+}
+.container:hover .block-1{
+    transform: perspective(300px) rotateY(15deg);
+}
+.container:hover .block-2{
+    transform: perspective(300px) rotateY(-15deg);
+}
+.text{
+    font-weight: bold;
+    font-size: 18px;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: -1;
+}
