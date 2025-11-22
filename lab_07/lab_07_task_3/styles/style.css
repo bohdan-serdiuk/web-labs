@@ -1,0 +1,38 @@
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;    
+    box-sizing: border-box;
+}
+.gallery {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery .item {
+    width: 30%;
+    float: left;
+    margin: 1%;
+}
+
+.gallery img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: 0.3s ease;
+}
+
+img:hover {
+    filter: grayscale(0%);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 960px) {
+    .gallery .item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery .item {
+        width: 100%;
+    }
+}
