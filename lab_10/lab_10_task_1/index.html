@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Сердюк Богдан</title>
+</head>
+<body>
+    <div class="container">
+        <p class="header-text">CREDIT CARD DETAILS</p>
+        <img src="../icons_hw_module_8/moon_flag.png" alt="">
+        <div class="credit-form">
+            <form action="">
+                <label for="card-number">Card Number</label>
+                <input type="text" name="card-number" id="card-number" placeholder="1234 5678 9012 3456">
+                <label for="card-name">Name On Card</label>
+                <input type="text" name="card-name" id="card-name" placeholder="Name Surname">
+                <div class="details">
+                    <div class="expiry">
+                        <label for="expiry-month">Expiry Date</label>
+                        <div class="expiry-inputs">
+                            <input type="number" name="expiry-month" id="expiry-month" maxlength="2" placeholder="02">
+                            <input type="number" name="expiry-year" id="expiry-year" maxlength="4" placeholder="2017">
+                        </div>
+                    </div>
+                    <div class="cvv">
+                        <label for="cvv-cvn">CVV / CVN</label>
+                        <input type="password" name="cvv-cvn" id="cvv-cvn" maxlength="3" placeholder="***">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
