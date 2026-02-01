@@ -1,0 +1,63 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  background-color: $primary-color;
+  padding: $spacing-sm 0;
+  @include box-shadow(1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $white;
+    letter-spacing: 1px;
+    
+    @include mobile {
+      font-size: 1.3rem;
+    }
+  }
+  
+  &__nav {
+    .nav {
+      display: flex;
+      gap: $spacing-md;
+      
+      @include mobile {
+        gap: $spacing-sm;
+      }
+      
+      &__item {
+        a {
+          color: $white;
+          font-weight: 500;
+          padding: $spacing-xs $spacing-sm;
+          border-radius: $border-radius;
+          transition: all $transition-speed ease;
+          
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+          }
+          
+          @include mobile {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  background: url('../images/texture.avif');
+  background-size: cover;
+  background-position: center;
+  padding: $spacing-xl 0;
+  text-align: center;
+  position: relative;
+  
+  @include mobile {
+    padding: $spacing-lg 0;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__title {
+    @include responsive-font(1.8rem, 2.3rem, 2.8rem);
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: $spacing-md;
+    
+    @include mobile {
+      margin-bottom: $spacing-sm;
+    }
+  }
+  
+  &__text {
+    @include responsive-font(1rem, 1.1rem, 1.2rem);
+    color: $text-light;
+    margin-bottom: $spacing-lg;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @include mobile {
+      margin-bottom: $spacing-md;
+    }
+  }
+  
+  .btn {
+    @include mobile {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+}
