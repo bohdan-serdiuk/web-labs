@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+</head>
+<body>
+    <script>
+        let hours = new Date().getUTCHours();
+        //1
+        // if(hours >= 5 && hours < 11){
+        //     console.log('Доброго ранку');
+        // } else if(hours >= 11 && hours < 17){
+        //     console.log('Доброго дня');
+        // } else if(hours >= 17 && hours < 23){
+        //     console.log('Доброго вечора');
+        // } else if(hours >= 23 && hours < 5){
+        //     console.log('Доброї ночі');
+        // }
+
+        //2
+        console.log(
+            (hours >= 5 && hours < 11) ? 'Доброго ранку' :
+            (hours >= 11 && hours < 17) ? 'Доброго дня' :
+            (hours >= 17 && hours < 23) ? 'Доброго вечора' :
+            (hours >= 23 && hours < 5) ? 'Доброї ночі' : ''
+        );
+    </script>
+</body>
+</html>

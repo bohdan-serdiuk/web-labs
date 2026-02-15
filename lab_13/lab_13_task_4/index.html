@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+</head>
+<body>
+    <script>
+        let isCorrect = true;
+
+        let a = +prompt('Введіть першу сторону трикутника');
+        if(Number.isNaN(a)) isCorrect = false;
+        let b = +prompt('Введіть другу сторону трикутника');
+        if(Number.isNaN(a)) isCorrect = false;
+        let c = +prompt('Введіть третю сторону трикутника');
+        if(Number.isNaN(a)) isCorrect = false;
+        
+        if(!isCorrect){
+            console.log('Incorrect data');
+        } else{
+            let p = (a+b+c)/2;
+            let area = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+            console.log('S = ' + area.toPrecision(4));
+
+            console.log('Трикутник прямокутний: ' + (a**2+b**2 == c**2));
+        }
+    </script>
+</body>
+</html>
