@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+</head>
+<body>
+    <script>
+        let shoppingList = [
+            {
+                name: "Хліб",
+                quantity: 1,
+                bought: false
+            },
+            {
+                name: "Молоко",
+                quantity: 2,
+                bought: true
+            },
+            {
+                name: "Яблука",
+                quantity: 5,
+                bought: false
+            }
+        ];
+
+        function showList(list) {
+            console.log("Список покупок");
+
+            for (let item of list.sort((a, b) => a.bought - b.bought)) {
+                console.log(item.name + " (" + item.quantity + ") - " + (item.bought == true ? "Куплено" : "Не куплено"));
+            }
+        }
+
+        function addProduct(list, productName, quantity) {
+            let found = list.find(obj => obj.name == productName);
+
+            if (!found) {
+                list.push({
+                    name: productName,
+                    quantity: quantity,
+                    bought: false
+                });
+            } else{
+                found.quantity += quantity;
+            }
+        }
+
+        function buyProduct(list, productName) {
+            let item = list.find(obj => obj.name == productName);
+            if(item){
+                item.bought = true;
+            }
+        }
+
+        showList(shoppingList);
+
+        addProduct(shoppingList, "Хліб", 2);
+        addProduct(shoppingList, "Сир", 1);
+
+        buyProduct(shoppingList, "Яблука");
+
+        showList(shoppingList);
+    </script>
+</body>
+</html>

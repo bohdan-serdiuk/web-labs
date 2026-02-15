@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+</head>
+<body>
+    <script>
+        function findMin(){
+            let min = arguments[0];
+            for(let num of Array.from(arguments)){
+                if(num < min){
+                    min = num;
+                }
+            }
+            return min;
+        }
+
+        console.log(findMin(12,14,4,-4,0.2));
+    </script>
+</body>
+</html>

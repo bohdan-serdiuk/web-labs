@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+</head>
+<body>
+    <script>
+        function findUnique(arr){
+            let unique = new Set(arr);
+            if(arr.length != unique.size) return false;
+            return true;
+        }
+        console.log(findUnique([1,2,3,5,3]));
+        console.log(findUnique([1,2,3,5,11]));
+    </script>
+</body>
+</html>
