@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="count">
+            <p id="days" class="time">00</p>
+            <p>days</p>
+        </div>
+        <div class="count">
+            <p id="hours" class="time">00</p>
+            <p>hours</p>
+        </div>
+        <div class="count">
+            <p id="minutes" class="time">00</p>
+            <p>minutes</p>
+        </div>
+        <div class="count">
+            <p id="seconds" class="time">00</p>
+            <p>seconds</p>
+        </div>
+    </div>
+    <script>
+        setInterval(() => {
+            let todayDate = new Date();
+            let newYearDate = new Date(`January 1, ${todayDate.getFullYear()+1} 00:00:00`);
+            let diff = newYearDate - todayDate;
+
+            let countdownDays = Math.floor(diff / (1000*60*60*24)) + '';
+            let countdownHours = Math.floor((diff / (1000*60*60)) % 24) + '';
+            let countdownMinutes = Math.floor((diff / 1000 / 60) % 60) + '';
+            let countdownSeconds = Math.floor((diff / 1000) % 60) + '';
+
+            document.getElementById('days').textContent = countdownDays.padStart(2, '0');
+            document.getElementById('hours').textContent = countdownHours.padStart(2, '0');
+            document.getElementById('minutes').textContent = countdownMinutes.padStart(2, '0');
+            document.getElementById('seconds').textContent = countdownSeconds.padStart(2, '0');
+        }, 1000)
+
+    </script>
+</body>
+</html>

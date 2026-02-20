@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+</head>
+<body>
+    <script>
+        //2.1
+        let numbers = [1, 2, 3];
+        let [firstNumber, secondNumber, thirdNumber] = numbers;
+        console.log(firstNumber, secondNumber, thirdNumber);
+
+        //2.2
+        let fruits = ['Apple', 'Orange', 'Banana'];
+        let [firstFruit, ...restFruits] = fruits;
+        console.log(firstFruit, restFruits);
+
+        //2.3
+        let arr1 = [1,2,3];
+        let arr2 = [4,5,6];
+        let combinedArray = [...arr1, ...arr2];
+        console.log(combinedArray);
+    </script>
+</body>
+</html>
