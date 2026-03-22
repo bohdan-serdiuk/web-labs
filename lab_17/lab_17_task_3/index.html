@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Сердюк Богдан</title>
+</head>
+<body>
+
+  <div class="selects">
+    <select id="country">
+      <option value="">-- Оберіть країну --</option>
+      <option value="Germany">Germany</option>
+      <option value="USA">USA</option>
+      <option value="Ukraine">Ukraine</option>
+    </select>
+
+    <select id="city">
+      <option value="">-- Оберіть місто --</option>
+    </select>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    const cities = {
+      Germany: ['Berlin', 'Munich', 'Hamburg', 'Frankfurt', 'Cologne'],
+      USA: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'],
+      Ukraine: ['Kyiv', 'Lviv', 'Odesa', 'Kharkiv', 'Dnipro']
+    };
+
+    const countrySelect = document.getElementById('country');
+    const citySelect = document.getElementById('city');
+    const result = document.getElementById('result');
+
+    countrySelect.addEventListener('change', () => {
+      const country = countrySelect.value;
+
+      citySelect.innerHTML = '<option value="">-- Оберіть місто --</option>';
+      result.textContent = '';
+
+      if (!country) return;
+
+      cities[country].forEach(city => {
+        const option = document.createElement('option');
+        option.value = city;
+        option.textContent = city;
+        citySelect.appendChild(option);
+      });
+    });
+
+    citySelect.addEventListener('change', () => {
+      const country = countrySelect.value;
+      const city = citySelect.value;
+
+      if (country && city) {
+        result.textContent = country + ', ' + city;
+      } else {
+        result.textContent = '';
+      }
+    });
+  </script>
+
+</body>
+</html>

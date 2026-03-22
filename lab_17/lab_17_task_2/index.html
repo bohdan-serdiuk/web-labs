@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сердюк Богдан</title>
+  <style>
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        border-bottom: 1px solid black;
+        padding: 10px 16px;
+        position: relative;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 8px;
+    }
+
+    .nav-links a {
+        color: black;
+        text-decoration: none;
+        padding: 6px 12px;
+        display: block;
+    }
+
+    .nav-links a:hover {
+        color: #fff;
+        background: #555;
+        border-radius: 4px;
+    }
+
+    .burger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+    }
+
+    .burger img {
+        width: 28px;
+        height: 28px;
+        display: block;
+    }
+
+    @media (max-width: 400px) {
+        .burger {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 100;
+            padding: 8px 0;
+        }
+
+        .nav-links.open {
+            display: flex;
+        }
+
+        .nav-links a {
+            padding: 10px 16px;
+            border-top: 1px solid #444;
+        }
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    main p {
+        margin-bottom: 16px;
+        line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <button class="burger" id="burger" aria-label="Відкрити меню">
+      <img src="menu-burger.svg" alt="Меню" />
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Головна</a></li>
+      <li><a href="#">Про нас</a></li>
+      <li><a href="#">Послуги</a></li>
+      <li><a href="#">Портфоліо</a></li>
+      <li><a href="#">Контакти</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis molestie dictum semper, nunc augue placerat mauris, eget feugiat eros nunc vitae dui.</p>
+    <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
+    <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
+  </main>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('nav-links');
+    const nav = document.getElementById('nav');
+
+    burger.addEventListener('click', e => {
+      e.stopPropagation(); 
+      navLinks.classList.toggle('open');
+    });
+
+    document.addEventListener('click', e => {
+      if (!nav.contains(e.target)) {
+        navLinks.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
