@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            padding: 20px;
+            background-color: #e7e7e7;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <p>Початоквий текст</p>
+    </div>
+    <button id="btn">Змінити текст</button>
+
+    <script>
+        let btn = document.getElementById('btn');
+        let box = document.getElementById('box');
+
+        btn.addEventListener('click', () => {
+            let newText = prompt('Ввведіть новий текст');
+            box.textContent = newText;
+        })
+    </script>
+</body>
+</html>

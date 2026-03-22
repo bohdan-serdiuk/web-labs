@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердюк Богдан</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: #949494;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .box{
+            background-color: #c4c4c4;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Add new div</button>
+    <div class="container" id="container"></div>
+
+    <script>
+        let btn = document.getElementById('btn');
+        let container = document.getElementById('container');
+
+        btn.addEventListener('click', () => {
+            let div = document.createElement('div');
+            div.className = 'box';
+            div.style.width = '400px';
+            div.style.height = '400px';
+
+            container.append(div);
+        })
+    </script>
+</body>
+</html>
