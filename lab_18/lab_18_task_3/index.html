@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Shape{
+            constructor(color){
+                this.color = color;
+            }
+        }
+
+        class Circle extends Shape{
+            constructor(color, radius){
+                super(color);
+                this.radius = radius;
+            }
+            calcArea(){
+                console.log('Area:', Math.PI * this.radius**2);
+            }
+            calcPerimeter(){
+                console.log('Perimeter:', 2 * Math.PI * this.radius);
+            }
+        }
+
+        class Rectangle extends Shape{
+            constructor(color, sideA, sideB){
+                super(color);
+                this.sideA = sideA;
+                this.sideB = sideB;
+            }
+            calcArea(){
+                console.log('Area:', this.sideA * this.sideB);
+            }
+            calcPerimeter(){
+                console.log('Perimeter:', 2 * this.sideA + 2 * this.sideB);
+            }
+        }
+
+        let circle = new Circle('green', 4);
+        let rectangle = new Rectangle('yellow', 3, 5);
+
+        circle.calcArea();
+        circle.calcPerimeter();
+
+        rectangle.calcArea();
+        rectangle.calcPerimeter();
+    </script>
+</body>
+</html>

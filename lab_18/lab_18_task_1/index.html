@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Car(brand, model, year){
+            this.brand = brand;
+            this.model = model;
+            this.year = year;
+        }
+
+        Car.prototype.displayInfo = function(){
+            console.log(`Brand: ${this.brand}, model: ${this.model}, year: ${this.year}`);
+        }
+        Car.prototype.drive = function(){
+            console.log('Рух розпочато');
+        }
+
+        let car1 = new Car('Audi', 'A4', 2016);
+        car1.displayInfo();
+        car1.drive();
+
+        let car2 = new Car('Volkswagen', 'Passat', 2017);
+        car2.displayInfo();
+        car2.drive();
+    </script>
+</body>
+</html>

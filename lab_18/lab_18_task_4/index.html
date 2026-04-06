@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Button{
+            constructor(text, border, color, background){
+                this.text = text;
+                this.border = border;
+                this.color = color;
+                this.background = background;
+            }
+            render(){
+                let btn = document.createElement('button');
+
+                btn.textContent = this.text;
+                btn.style.color = this.color;
+                btn.style.border = this.border;
+                btn.style.background = this.background;
+
+                btn.addEventListener('click', () => {
+                    console.log(`Button clicked: ${this.text}. Color of the button: ${this.background}`);
+                })
+
+                document.body.append(btn);
+
+                return btn;
+            }
+        }
+
+        class RoundedButton extends Button{
+            constructor(text, border, color, background, borderRadius){
+                super(text, border, color, background);
+                this.borderRadius = borderRadius;
+            }
+
+            render(){
+                let btn = super.render();
+
+                btn.style.borderRadius = this.borderRadius;
+            }
+        }
+
+        let button1 = new Button('Click me', '1px solid black', 'black', 'white');
+        button1.render();
+
+        let button2 = new Button('Click me 2', '2px dotted pink', 'white', 'blue');
+        button2.render();
+
+        let button3 = new Button('Click me 3', '3px solid red', 'white', 'black');
+        button3.render();
+
+        let roundedButton1 = new RoundedButton('Rounded', '1px solid black', 'black', 'white', '5px');
+        roundedButton1.render();
+
+        let roundedButton2 = new RoundedButton('Rounded 2', '2px dotted pink', 'white', 'blue', '10px');
+        roundedButton2.render();
+
+        let roundedButton3 = new RoundedButton('Rounded 3', '3px solid red', 'white', 'black', '15px');
+        roundedButton3.render();
+    </script>
+</body>
+</html>
