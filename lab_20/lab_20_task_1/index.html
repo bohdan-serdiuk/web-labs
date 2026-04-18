@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validateBankCard(card){
+            let regex = /^[45][0-9]{15}/;
+            return regex.test(card.trim());
+        }
+
+        console.log(validateBankCard('4445323211223443'));
+        console.log(validateBankCard('5445323213223443'));
+        console.log(validateBankCard('3445323211223443'));
+        console.log(validateBankCard('334445323211223443'));
+    </script>
+</body>
+</html>

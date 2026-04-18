@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9](?!.*--)[a-zA-Z0-9_-]*@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+            return regex.test(email);
+        }
+
+        console.log(validateEmail("my_mail@gmail.com"));
+        console.log(validateEmail("#my_mail@gmail.com"));
+        console.log(validateEmail("my_ma--il@gmail.com"));
+    </script>
+</body>
+</html>
