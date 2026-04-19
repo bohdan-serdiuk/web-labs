@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles\style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <header class="main__header">
+        <p>eShop</p>
+        <button id="createProduct">Create product</button>
+    </header>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <div class="modal" id="modal" hidden>
+        <header class="modal__header">
+            <h1>Create product</h1>
+            <button type="button" class="modal__header__exit-button" id="exit">&times;</button>
+        </header>
+        <form action="">
+            <main>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" required>
+
+                <label for="description">Description</label>
+                <textarea name="description" rows="2" id="description" required></textarea>
+
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" required min="0">
+
+                <label for="discount">Discount</label>
+                <input type="number" name="discount" id="discount" required min="0" max="100">
+
+                <label for="inStock">In stock</label>
+                <input type="number" name="inStock" id="inStock" min="0">
+
+                <label for="category">Category</label>
+                <select name="category" id="category" required>
+                    <option value="smartphones">Smartphones</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="headphones">Headphones</option>
+                </select>
+
+                <label for="linkToPicture">Link to picture</label>
+                <input type="text" name="linkToPicture" id="linkToPicture" required>
+            </main>
+            <footer class="modal__footer">
+                <button>Save product</button>
+            </footer>
+        </form>
+    </div>
+    
+    <div class="container" id="container">
+    </div>
+
+    <script>
+        function openModal(mode){
+            modal.querySelector('.modal__header h1').textContent = `${mode[0].toUpperCase() + mode.slice(1)} product`;
+            form.dataset.mode = mode;
+            
+            if(mode == 'edit'){
+                Object.entries(product).forEach(elem => {
+                    form[elem[0]].value = elem[1];
+                })
+            }
+
+            modal.hidden = false;
+        }
+
+        function closeModal(){
+            modal.hidden = true;
+            overlay.hidden = true;
+            product = null;
+            form.reset();
+        }
+
+        function renderProducts() {
+            container.innerHTML = '';
+            products.forEach((value, index) => {
+                let cardHTML = `
+                    <div class="card" data-id="${index}">
+                        <header class="card__header">
+                            <p class="product__discount">${value.discount + '%'}</p>
+                            <img src="${value.linkToPicture}" alt="" class="product__img">
+                            <p class="product__category">${value.category}</p>
+                        </header>
+                        <main class="card__main">
+                            <h3 class="product__title">${value.title}</h3>
+                            <p class="product__description">${value.description}</p>
+                        </main>
+                        <footer class="card__footer">
+                            <p class="product__price">${value.price + '$'}</p>
+                            <div class="product__actions">
+                                <button class="product_edit" id="editProduct">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </button>
+                                <button class="product_delete" id="deleteProduct">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </footer>
+                    </div>
+                `;
+
+                container.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        let form = document.forms[0];
+        let overlay = document.getElementById('overlay');
+        let modal = document.getElementById('modal');
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+        let product;
+        let container = document.getElementById('container');
+
+        renderProducts();
+
+        document.getElementById('createProduct').addEventListener('click', () => {
+            openModal('create');
+            overlay.hidden = false;
+        })
+
+        document.addEventListener('click', e => {
+            let target = e.target.closest('#editProduct');
+        
+            if(!target) return;
+
+            target = target.closest('.card');
+            product = products[target.dataset.id];
+
+            openModal('edit');
+            overlay.hidden = false;
+        })
+        document.addEventListener('click', e => {
+            let target = e.target.closest('#deleteProduct');
+        
+            if(!target) return;
+            
+            target = target.closest('.card');
+            let product = products[target.dataset.id];
+
+            if(confirm(`Do you really want to remove ${product.title}`)){
+                products.splice(target.dataset.id, 1);
+                localStorage.setItem('products', JSON.stringify(products));
+                renderProducts();
+            }
+        })
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            if(!form.checkValidity()) return;
+
+            if(form.dataset.mode == 'create'){
+                products.push(Object.fromEntries(new FormData(form).entries()));
+                localStorage.setItem('products', JSON.stringify(products));
+            } else {
+                new FormData(form).entries().forEach(elem => {
+                    product[elem[0]] = elem[1];
+                });
+                localStorage.setItem('products', JSON.stringify(products));
+            }
+            
+            renderProducts();
+            closeModal();
+        })
+        document.addEventListener('click', e => {
+            if(e.target == document.getElementById('exit') || e.target == overlay) closeModal();
+        });
+    </script>
+</body>
+</html>
