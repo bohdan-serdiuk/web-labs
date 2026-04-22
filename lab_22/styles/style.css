@@ -1,0 +1,208 @@
+/*main*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/*header*/
+
+        .main__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6e6e6e;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 16px;
+        }
+        .main__header p{
+            font-weight: bold;
+            color: #fff;
+        }
+        .main__header button{
+            padding: 4px 16px;
+            background: none;
+            border: 1px solid white;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+/*modal*/
+    
+        .modal{
+            z-index: 10000;
+            position: fixed;
+            width: 500px;
+            background-color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .modal form{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 16px;
+        }
+        .modal main{
+            display: flex;
+            flex-direction: column;
+        }
+        .modal main input, 
+        .modal main select, 
+        .modal main textarea{
+            margin-bottom: 16px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid grey;
+        }
+        .modal__header{
+            background-color: #8cadeb;
+            position: relative;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .modal__header__exit-button{
+            padding: 4px;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+        .modal__footer{
+            text-align: center;
+        }
+        .modal__footer button{
+            padding: 8px 24px
+        }
+        .overlay{
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+/*card*/
+
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 25%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.55);
+}
+
+.card__header{
+    position: relative;
+}
+
+.product__discount{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.product__img{
+    width: 100%;
+    object-fit: cover;
+    height: 480px;
+}
+
+.product__category{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(133, 133, 133, 0.7);
+    padding: 4px 8px;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.card__main{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding-bottom: 16px;
+    flex-grow: 1;
+}
+
+.card__footer{
+    padding: 16px;
+    justify-content: space-around;
+    display: flex;
+    gap: 16px;
+    margin-top: auto;
+}
+
+.product__price{
+    color: red;
+    font-size: 32px;
+}
+
+.product_edit{
+    color: green;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.product_delete{
+    color: red;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.container{
+    padding: 32px;
+    display: flex;
+    gap: 32px;
+}
+
+/* filter */
+
+.filter_container{
+    width: 100%;
+    height: fit-content;
+    padding: 4px;
+    background: rgb(189, 189, 189);
+}
+
+.filter_container form{
+    display: flex;
+    gap: 8px;
+}
+
+.filter_container form select{
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+.filter_container form input{
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    flex-grow: 2;
+}
