@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <label><input type="checkbox" class="task4"> Варіант 1</label><br>
+    <label><input type="checkbox" class="task4"> Варіант 2</label><br>
+    <label><input type="checkbox" class="task4"> Варіант 3</label><br>
+    <label><input type="checkbox" class="task4"> Варіант 4</label><br>
+    <label><input type="checkbox" class="task4"> Варіант 5</label><br>
+    <label><input type="checkbox" class="task4"> Варіант 6</label>
+
+    <script>
+        $('.task4').on('change', function () {
+            if ($('.task4:checked').length >= 3) {
+                $('.task4').prop('disabled', true);
+                $('#task4-msg').text('Обрано 3 варіанти — всі чекбокси заблоковано.');
+            }
+        });
+    </script>
+
+</body>
+</html>
